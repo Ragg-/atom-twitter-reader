@@ -1,0 +1,372 @@
+// The ui-variables file is provided by base themes provided by Atom.
+//
+// See https://github.com/atom/atom-dark-ui/blob/master/styles/ui-variables.less
+// for a full listing of what's available.
+@import "ui-variables";
+
+.twitter-reader {
+    position: relative;
+    display: flex;
+    flex-flow: column;
+    max-width: 600px;
+    margin: 0 auto;
+
+    overflow: hidden;
+
+    background-color: @app-background-color;
+
+    .post {
+        position: relative;
+        width: 100%;
+        height: 90px;
+        z-index: 1;
+
+        box-shadow: 0 0 5px rgba(0, 0, 0, .4);
+
+        &_account {
+            position: absolute;
+            height: 0;
+            padding: 8px;
+            margin-left: (32px + 8px);
+            z-index: 1;
+
+            font-size: 12px;
+
+            &_avator {
+                width: 32px;
+                height: 32px;
+                margin-left: -(32px + 8px);
+                float: left;
+            }
+
+            &_user-name {
+                font-weight: normal;
+            }
+
+            &_screen-name {
+                margin-left: 1em;
+                font-size: 10px;
+                color: @text-color-ignored;
+            }
+        }
+
+        &_input {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            padding: 8px 12px;
+            /* 32px avator + 8px extra margin in avator + 16px extra margin */
+            padding-left: (32px + 8px + 16px);
+
+            font-size: 14px;
+            color: #000;
+            border: none;
+
+            resize: none;
+
+            &[disabled] {
+                color: @text-color-subtle;
+            }
+        }
+
+        &_submit {
+            position: absolute;
+            bottom: 0;
+            margin-left: 8px;
+            margin-bottom: 8px;
+
+            &[disabled] {
+                color: @text-color-subtle;
+            }
+        }
+    }
+
+    .timeline {
+        padding: 16px;
+        flex: 1;
+
+        overflow: auto;
+
+        list-style: none;
+
+        &--scrolling .tweet {
+            pointer-events: none;
+        }
+
+        .tweet {
+            display: block;
+            margin-left: (48px + 3px + 8px); /* image-size 48px + 3px border + 8px margin */
+            margin-bottom: 8px;
+            padding: 8px 8px;
+            border-left: 3px dashed fade(@background-color-highlight, 40%);
+
+            transition-duration: .2s;
+
+            &--notify-fav {
+                border-left-color: fade(@background-color-warning, 40%);
+                background-color: fade(@background-color-warning, 10%);
+                color: darken(@text-color-warning, 10%);
+
+                .tweet_account_avator {
+                    margin-top: -2em;
+                }
+            }
+
+            &--notify-unfav {
+                border-left-color: fade(@background-color-error, 40%);
+                background-color: fade(@background-color-error, 10%);
+                color: darken(@text-color-error, 10%);
+
+                .tweet_account_avator {
+                    margin-top: -2em;
+                }
+            }
+
+            &--reply {
+                border-left-color: fade(@background-color-info, 40%);
+                background-color: fade(@background-color-info, 10%);
+            }
+
+            &--deleting {
+                background-color: fade(@background-color-error, 10%);
+                border-left-color: fade(@background-color-error, 40%);
+            }
+
+            &--quoted {
+                margin-left: 0;
+                border: 1px dashed rgba(0, 0, 0, 0.4);
+            }
+
+            &:hover {
+                & > .tweet_actions {
+                    // border-top-width: 1px;
+                    max-height: 100px;
+                    padding-top: 4px;
+                    padding-bottom: 4px;
+                    // background-color: rgba(255, 255, 255, .1);
+
+                    .tweet_actions_item {
+                        opacity: 1;
+                    }
+                }
+            }
+
+            &_header {
+                margin-bottom: 8px;
+            }
+
+            &_account {
+                display: inline;
+                font-size: @font-size + 2px;
+                text-decoration: none;
+
+                &_avator {
+                    /* image-size 48px + 8px left-padding + 3px border + + 8px extra-margin */
+                    margin-left: -(48px + 8px + 8px + 3px);
+                    float: left;
+
+                    &--retweet {
+                        position: relative;
+
+                        .tweet_account_avator_tweeter {
+                            width: 48px;
+                            height: 48px;
+                        }
+
+                        .tweet_account_avator_retweeter {
+                            position: absolute;
+                            right: -3px;
+                            bottom: -3px;
+
+                            width: 24px;
+                            height: 24px;
+                        }
+                    }
+                }
+
+                &_names {
+                    // .tweet_account_avator for retweeted
+                    display: inline;
+                    font-size: @font-size + 2px;
+                    text-decoration: none;
+                }
+
+                &_user-name {
+                    font-weight: normal;
+                }
+
+                &_screen-name {
+                    margin-left: 1em;
+                    color: @text-color-ignored;
+                }
+            }
+
+            &_times-ago {
+                float: right;
+            }
+
+            &_body {
+                padding: 0;
+                background-color: transparent;
+            }
+
+                &_mention {
+                    color: @text-color-info;
+
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+
+                &_hashtag {
+                    text-decoration: underline;
+                }
+
+                &_link {
+                    color: @text-color-info;
+                }
+
+
+            &_retweeter {
+                float: right;
+
+                line-height: 1;
+                text-decoration: none;
+                text-align: right;
+                vertical-align: bottom;
+                line-height: 16px;
+
+                opacity: .3;
+
+
+                &_avator {
+                    width: 16px;
+                    height: 16px;
+                    margin: 0 4px;
+                    vertical-align: top;
+                }
+
+                &_user-name {
+                    display: inline-block;
+                    max-width: 6.1em; // .1emにすることでアバターの右側にぴったりくっつく
+                    overflow: hidden;
+
+                    font-size: 14px;
+                    font-weight: normal;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+            }
+
+            &_extended {
+                display: block;
+                margin-top: 8px;
+                overflow-x: auto;
+            }
+
+                &_ex-media {
+                    &_img {
+                        max-width: 400px;
+                        max-height: 100px;
+                        margin-right: 8px;
+                    }
+                }
+
+            &_actions {
+                max-height: 0;
+                overflow: hidden;
+
+                margin-top: 8px;
+                padding: 0 16px;
+                border-top: solid rgba(255, 255, 255, .1);
+                border-top-width: 0;
+
+                // background-color: rgba(255, 255, 255, 0);
+
+                transition-duration: .2s;
+                transition-property:
+                    max-height,
+                    border-top-width,
+                    padding-top,
+                    padding-bottom,
+                    background-color;
+
+                &--hasRetweet {
+                    // border-top-width: 1px;
+                    max-height: 100px;
+                    padding-top: 4px;
+                    padding-bottom: 4px;
+                }
+
+                &_item {
+                    margin-right: 2em;
+                    opacity: 0;
+
+                    transition: opacity .2s;
+
+                    &--retweeted {
+                        color: @text-color-success;
+                    }
+
+                    &--favorited {
+                        color: @text-color-warning;
+                    }
+                }
+            }
+        }
+    }
+
+    .mediaview {
+        position: absolute;
+        width: 100%;
+        max-height: 0;
+        overflow: hidden;
+
+        border-top: 1px solid @overlay-border-color;
+        border-bottom: 1px solid @overlay-border-color;
+        background-color: @overlay-background-color;
+        opacity: 0;
+
+        transition-property: max-height, opacity;
+        transition-duration:.2s;
+
+        &--open {
+            overflow: visible;
+
+            max-height: 114514px;
+            opacity: 1;
+        }
+
+        &_arrow {
+            position: absolute;
+            bottom: 100%;
+            border: 10px solid transparent;
+            border-bottom-color: @overlay-border-color;
+
+            &::before {
+                content: '';
+                position: absolute;
+                transform: translateX(-10px) translateY(-9px);
+                border: 10px solid transparent;
+                border-bottom-color: @overlay-background-color;
+            }
+        }
+
+        &_content {
+            width: 100%;
+            max-height: 600px;
+            padding: 8px 0;
+            overflow: hidden;
+            text-align: center;
+
+            &_image {
+                max-width: 100%;
+                max-height: 400px;
+            }
+        }
+    }
+}
