@@ -7,7 +7,7 @@
   "keywords": [],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/atom/twitter-reader.git"
+    "url": "git+https://github.com/Ragg-/atom-twitter-reader.git"
   },
   "license": "MIT",
   "engines": {
