@@ -1,7 +1,7 @@
 {
   "name": "atom-twitter-reader",
   "main": "./lib/twitter-reader",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "Ragg- <ragg.devpr@gmail.com>",
   "description": "Sabotage on Atom",
   "keywords": [],
