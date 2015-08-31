@@ -9,10 +9,10 @@ class TwitterTranport extends EventEmitter
         @initDefer = Promise.defer()
 
         @twitter = new Twitter
-            consumer_key        : atom.config.get("twitter-reader.consumer_key"),
-            consumer_secret     : atom.config.get("twitter-reader.consumer_secret"),
-            access_token_key    : atom.config.get("twitter-reader.access_token_key"),
-            access_token_secret : atom.config.get("twitter-reader.access_token_secret"),
+            consumer_key        : atom.config.get("atom-twitter-reader.consumer_key"),
+            consumer_secret     : atom.config.get("atom-twitter-reader.consumer_secret"),
+            access_token_key    : atom.config.get("atom-twitter-reader.access_token_key"),
+            access_token_secret : atom.config.get("atom-twitter-reader.access_token_secret")
 
         # Fetch access user infomation
         @twitter.get "account/verify_credentials", {}, (err, info, raw) =>
