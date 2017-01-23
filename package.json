@@ -15,10 +15,10 @@
   },
   "dependencies": {
     "atom-space-pen-views": "^2.0.5",
-    "eventemitter3": "^1.1.1",
-    "lodash": "^3.10.1",
+    "eventemitter3": "^2.0.2",
+    "lodash": "^4.17.4",
     "moment": "^2.10.6",
-    "os-locale": "^1.1.0",
+    "os-locale": "^2.0.0",
     "twitter": "^1.2.5"
   },
   "bugs": {
